@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Contagem de Click</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Projeto Conta Click</h1>
+    </header>
+    <main class="main">
+        <button class="btn__conta">Aumentar</button>
+        <button class="btn__conta--diminuir">Diminuir</button>
+        <button class="btn__conta--limpa">Reiniciar</button>
+        <span class="span__exibir">0</span>
+    </main>
+
+    <script>
+        const btnConta = document.querySelector('.btn__conta');
+        const btnDiminuir = document.querySelector('.btn__conta--diminuir');
+        const btnReiniciar = document.querySelector('.btn__conta--limpa');
+        const spanExibir = document.querySelector('.span__exibir');
+        let cont = 0;
+
+        // Aumenta a contagem quando o botão "Aumentar" é pressionado
+        btnConta.addEventListener('click', function() {
+            cont += 1;
+            spanExibir.innerText = cont;
+            spanExibir.style.color = 'green'; // Cor verde para aumento
+        });
+
+        // Diminui a contagem quando o botão "Diminuir" é pressionado
+        btnDiminuir.addEventListener('click', function() {
+            cont -= 1;
+            spanExibir.innerText = cont;
+            // Verifica se o número é menor que zero e altera a cor para vermelha
+            if (cont < 0) {
+                spanExibir.style.color = 'red'; // Cor vermelha quando o número for menor que zero
+            }
+        });
+
+        // Reseta a contagem quando o botão "Reiniciar" é pressionado
+        btnReiniciar.addEventListener('click', function() {
+            cont = 0;
+            spanExibir.innerText = cont;
+            spanExibir.style.color = '#333'; // Cor padrão quando reiniciar
+        });
+    </script>
+</body>
+</html>
+
+
